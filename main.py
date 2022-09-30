@@ -104,13 +104,30 @@ async def get_boxes_add():
 
 @app.get("/")
 async def get_box_dimensions():
-    html = """
+    global boxes
+
+    ul = """
+    <ul>
+"""    
+    for box in boxes:
+        ul += """
+        <li>{0}x{1}x{2}</li>
+""".format(box.length, box.width, box.height)
+    
+    ul += """</ul>"""
+
+    html = f"""
     <html>
     <head>
     <title>Find a box that will fit</title>
     </head>
-    <body>
+    <body>    
+    <h1>Boxes</h1>
+    {ul}
+    <hr>
+    <br>
     <h1>Find a box that will fit</h1>
+    <br>
     <form action="/api/boxes/will_fit" method="post">
         <label for="length">Length:</label><br>
         <input type="number" id="length" name="length" value="0"><br>
