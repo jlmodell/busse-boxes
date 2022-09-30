@@ -61,7 +61,7 @@ async def post_boxes_will_fit(length: str = Form(...), width: str = Form(...), h
         "boxes_that_will_work": find_box_with_padding(box, int(padding))
     }
 
-@app.get("/boxes/add", response_class=HTMLResponse)
+@app.get("/add", response_class=HTMLResponse)
 async def get_boxes_add():
     global boxes
 
@@ -99,7 +99,7 @@ async def get_boxes_add():
     </html>
     """
 
-@app.get("/boxes/will_fit")
+@app.get("/")
 async def get_box_dimensions():
     html = """
     <html>
@@ -119,6 +119,8 @@ async def get_box_dimensions():
         <input type="number" id="padding" name="padding" value="0"><br><br>
         <input type="submit" value="Submit">
     </form>
+    <hr>
+    <a href="/add">Add a box</a>
     </body>
     </html>
 """
