@@ -92,9 +92,12 @@ async def get_boxes_add():
                 <label for="width">Width:</label><br>
                 <input type="number" id="width" name="width" value="0"><br>
                 <label for="height">Height:</label><br>
-                <input type="number" id="height" name="height" value="0"><br>
+                <input type="number" id="height" name="height" value="0"><br><br>
                 <input type="submit" value="Add Box">
             </form>
+            <hr>
+            <a href="/">Find a box that will fit</a>
+            </body>
         </body>
     </html>
     """
@@ -117,10 +120,10 @@ async def get_box_dimensions():
         <input type="number" id="height" name="height" value="0"><br>
         <label for="padding">Padding:</label><br>
         <input type="number" id="padding" name="padding" value="0"><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Find Box">
     </form>
     <hr>
-    <a href="/add">Add a box</a>
+        <a href="/add">Add a box</a>
     </body>
     </html>
 """
