@@ -96,8 +96,7 @@ async def get_boxes_add():
                 <input type="submit" value="Add Box">
             </form>
             <hr>
-            <a href="/">Find a box that will fit</a>
-            </body>
+            <a href="/">Find a box that will fit</a>            
         </body>
     </html>
     """
@@ -118,30 +117,29 @@ async def get_box_dimensions():
 
     html = f"""
     <html>
-    <head>
-    <title>Find a box that will fit</title>
-    </head>
-    <body>    
-    <h1>Boxes</h1>
-    {ul}
-    <hr>
-    <br>
-    <h1>Find a box that will fit</h1>
-    <br>
-    <form action="/api/boxes/will_fit" method="post">
-        <label for="length">Length:</label><br>
-        <input type="number" id="length" name="length" value="0"><br>
-        <label for="width">Width:</label><br>
-        <input type="number" id="width" name="width" value="0"><br>
-        <label for="height">Height:</label><br>
-        <input type="number" id="height" name="height" value="0"><br>
-        <label for="padding">Padding:</label><br>
-        <input type="number" id="padding" name="padding" value="0"><br><br>
-        <input type="submit" value="Find Box">
-    </form>
-    <hr>
-        <a href="/add">Add a box</a>
-    </body>
+        <head>
+            <title>Find a box that will fit</title>
+        </head>
+        <body>    
+            <h1>Boxes</h1>
+            <h5>(LxWxH)</h5>
+            {ul}
+            <hr>    
+            <h3>Find a box that will fit</h3>    
+            <form action="/api/boxes/will_fit" method="post">
+                <label for="length">Length:</label><br>
+                <input type="number" id="length" name="length" value="0"><br>
+                <label for="width">Width:</label><br>
+                <input type="number" id="width" name="width" value="0"><br>
+                <label for="height">Height:</label><br>
+                <input type="number" id="height" name="height" value="0"><br>
+                <label for="padding">Padding:</label><br>
+                <input type="number" id="padding" name="padding" value="0"><br><br>
+                <input type="submit" value="Find Box">
+            </form>
+            <hr>
+            <a href="/add">Add a box</a>
+        </body>
     </html>
 """
     return HTMLResponse(content=html, status_code=200)
